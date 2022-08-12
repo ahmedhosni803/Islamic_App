@@ -20,30 +20,34 @@ class _LanguageBottomState extends State<LanguageBottom> {
         color: Theme.of(context).backgroundColor,
       ),
       padding: EdgeInsets.all(50),
-      child: Expanded(
-        child: Center(
-          child: Column(
-            children: [
-              InkWell(
-                  onTap: () {
-                    settingsProvider.changeLanguage('ar');
-                  },
-                  child: settingsProvider.currentLang == 'ar'
-                      ? getSelectedItem('العربية')
-                      : getUnSelectedItem('العربية')),
-              SizedBox(
-                height: 50,
+      child: Column(
+        children: [
+          Expanded(
+            child: Center(
+              child: Column(
+                children: [
+                  InkWell(
+                      onTap: () {
+                        settingsProvider.changeLanguage('ar');
+                      },
+                      child: settingsProvider.currentLang == 'ar'
+                          ? getSelectedItem('العربية')
+                          : getUnSelectedItem('العربية')),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  InkWell(
+                      onTap: () {
+                        settingsProvider.changeLanguage('en');
+                      },
+                      child: settingsProvider.currentLang == 'en'
+                          ? getSelectedItem('English')
+                          : getUnSelectedItem('English'))
+                ],
               ),
-              InkWell(
-                  onTap: () {
-                    settingsProvider.changeLanguage('en');
-                  },
-                  child: settingsProvider.currentLang == 'en'
-                      ? getSelectedItem('English')
-                      : getUnSelectedItem('English'))
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

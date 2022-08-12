@@ -21,30 +21,37 @@ class _ThemeBottomState extends State<ThemeBottom> {
         color: Theme.of(context).backgroundColor,
       ),
       padding: EdgeInsets.all(50),
-      child: Expanded(
-        child: Center(
-          child: Column(
-            children: [
-              InkWell(
-                  onTap: () {
-                    settingsProvider.changeTheme(ThemeMode.light);
-                  },
-                  child: settingsProvider.isDarkMode()
-                      ? getUnSelectedItem(AppLocalizations.of(context)!.light)
-                      : getSelectedItem(AppLocalizations.of(context)!.light)),
-              SizedBox(
-                height: 50,
+      child: Column(
+        children: [
+          Expanded(
+            child: Center(
+              child: Column(
+                children: [
+                  InkWell(
+                      onTap: () {
+                        settingsProvider.changeTheme(ThemeMode.light);
+                      },
+                      child: settingsProvider.isDarkMode()
+                          ? getUnSelectedItem(
+                              AppLocalizations.of(context)!.light)
+                          : getSelectedItem(
+                              AppLocalizations.of(context)!.light)),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  InkWell(
+                      onTap: () {
+                        settingsProvider.changeTheme(ThemeMode.dark);
+                      },
+                      child: settingsProvider.isDarkMode()
+                          ? getSelectedItem(AppLocalizations.of(context)!.dark)
+                          : getUnSelectedItem(
+                              AppLocalizations.of(context)!.dark)),
+                ],
               ),
-              InkWell(
-                  onTap: () {
-                    settingsProvider.changeTheme(ThemeMode.dark);
-                  },
-                  child: settingsProvider.isDarkMode()
-                      ? getSelectedItem(AppLocalizations.of(context)!.dark)
-                      : getUnSelectedItem(AppLocalizations.of(context)!.dark)),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
