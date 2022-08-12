@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islami/Providers/settings_provider.dart';
 import 'package:provider/provider.dart';
@@ -14,36 +13,39 @@ class _LanguageBottomState extends State<LanguageBottom> {
     var settingsProvider = Provider.of<SettingsProvider>(context);
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.only(
-            topLeft: const Radius.circular(50),
-            topRight: const Radius.circular(50)),
+        borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(50), topRight: Radius.circular(50)),
         color: Theme.of(context).backgroundColor,
       ),
-      padding: EdgeInsets.all(50),
-      child: Expanded(
-        child: Center(
-          child: Column(
-            children: [
-              InkWell(
-                  onTap: () {
-                    settingsProvider.changeLanguage('ar');
-                  },
-                  child: settingsProvider.currentLang == 'ar'
-                      ? getSelectedItem('العربية')
-                      : getUnSelectedItem('العربية')),
-              SizedBox(
-                height: 50,
+      padding: const EdgeInsets.all(50),
+      child: Column(
+        children: [
+          Expanded(
+            child: Center(
+              child: Column(
+                children: [
+                  InkWell(
+                      onTap: () {
+                        settingsProvider.changeLanguage('ar');
+                      },
+                      child: settingsProvider.currentLang == 'ar'
+                          ? getSelectedItem('العربية')
+                          : getUnSelectedItem('العربية')),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  InkWell(
+                      onTap: () {
+                        settingsProvider.changeLanguage('en');
+                      },
+                      child: settingsProvider.currentLang == 'en'
+                          ? getSelectedItem('English')
+                          : getUnSelectedItem('English'))
+                ],
               ),
-              InkWell(
-                  onTap: () {
-                    settingsProvider.changeLanguage('en');
-                  },
-                  child: settingsProvider.currentLang == 'en'
-                      ? getSelectedItem('English')
-                      : getUnSelectedItem('English'))
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
@@ -55,7 +57,7 @@ class _LanguageBottomState extends State<LanguageBottom> {
           borderRadius: BorderRadius.circular(40),
           border: Border.all(color: Colors.deepOrange)),
       height: 50,
-      margin: EdgeInsets.symmetric(vertical: 5, horizontal: 80),
+      margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 80),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -63,7 +65,7 @@ class _LanguageBottomState extends State<LanguageBottom> {
             text,
             style: Theme.of(context).textTheme.headline1,
           ),
-          Icon(Icons.check),
+          const Icon(Icons.check),
         ],
       ),
     );
@@ -75,7 +77,7 @@ class _LanguageBottomState extends State<LanguageBottom> {
             borderRadius: BorderRadius.circular(40),
             border: Border.all(color: Theme.of(context).primaryColor)),
         height: 50,
-        margin: EdgeInsets.symmetric(vertical: 5, horizontal: 80),
+        margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 80),
         child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
           Text(
             text,
