@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/Home/Quran/QuranSura.dart';
@@ -80,7 +81,7 @@ class _SuraState extends State<Sura> {
     String content =
         await rootBundle.loadString('assets/Quran/${index + 1}.txt');
     int num = 0;
-    List<String> line = content.split("\n");
+    List<String> line = content.trim().split("\n");
     verses = line;
     setState(() {});
   }

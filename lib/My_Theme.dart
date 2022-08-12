@@ -14,7 +14,7 @@ class MyTheme {
         headline2:
             TextStyle(fontFamily: 'tajawal', fontSize: 17, color: Colors.black),
         headline3:
-            TextStyle(fontFamily: 'quran', fontSize: 20, color: Colors.black),
+            TextStyle(fontFamily: 'quran', fontSize: 25, color: Colors.black),
         headline4:
             TextStyle(fontFamily: 'tajawal', fontSize: 30, color: Colors.black),
       ),
@@ -55,7 +55,7 @@ class MyTheme {
         headline2:
             TextStyle(fontFamily: 'tajawal', fontSize: 17, color: Colors.white),
         headline3:
-            TextStyle(fontFamily: 'quran', fontSize: 20, color: Colors.white),
+            TextStyle(fontFamily: 'quran', fontSize: 25, color: Colors.white),
         headline4:
             TextStyle(fontFamily: 'tajawal', fontSize: 30, color: Colors.white),
       ),
