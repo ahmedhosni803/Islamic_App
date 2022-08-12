@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsProvider extends ChangeNotifier {
   String currentLang = 'ar';
-  ThemeMode currentTheme = ThemeMode.light;
+  ThemeMode currentTheme = ThemeMode.dark;
 
   void changeTheme(ThemeMode newTheme) async {
     final prefs = await SharedPreferences.getInstance();
