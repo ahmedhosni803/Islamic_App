@@ -36,7 +36,7 @@ class _SettingsTapState extends State<SettingsTap> {
                     borderRadius: BorderRadius.circular(40),
                     border: Border.all(color: Theme.of(context).primaryColor)),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               Expanded(
@@ -54,8 +54,8 @@ class _SettingsTapState extends State<SettingsTap> {
                             border: Border.all(
                                 color: Theme.of(context).primaryColor)),
                         height: 50,
-                        margin:
-                            EdgeInsets.symmetric(vertical: 5, horizontal: 80),
+                        margin: const EdgeInsets.symmetric(
+                            vertical: 5, horizontal: 80),
                         child: InkWell(
                           onTap: () {
                             showLanguageBottomShet();
@@ -87,8 +87,8 @@ class _SettingsTapState extends State<SettingsTap> {
                             border: Border.all(
                                 color: Theme.of(context).primaryColor)),
                         height: 50,
-                        margin:
-                            EdgeInsets.symmetric(vertical: 5, horizontal: 80),
+                        margin: const EdgeInsets.symmetric(
+                            vertical: 5, horizontal: 80),
                         child: InkWell(
                           onTap: showThemeBottomShet,
                           child: Container(
@@ -96,7 +96,7 @@ class _SettingsTapState extends State<SettingsTap> {
                               borderRadius: BorderRadius.circular(40),
                             ),
                             height: 50,
-                            margin: EdgeInsets.symmetric(
+                            margin: const EdgeInsets.symmetric(
                                 vertical: 5, horizontal: 80),
                             child: Center(
                                 child: settingsProvider.isDarkMode()
@@ -115,7 +115,7 @@ class _SettingsTapState extends State<SettingsTap> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
                       Container(
@@ -124,8 +124,8 @@ class _SettingsTapState extends State<SettingsTap> {
                             border: Border.all(
                                 color: Theme.of(context).primaryColor)),
                         height: 50,
-                        margin:
-                            EdgeInsets.symmetric(vertical: 5, horizontal: 80),
+                        margin: const EdgeInsets.symmetric(
+                            vertical: 5, horizontal: 80),
                         child: Center(
                             child: Text(
                           AppLocalizations.of(context)!.about,

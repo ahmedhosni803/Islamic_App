@@ -15,12 +15,11 @@ class _ThemeBottomState extends State<ThemeBottom> {
     var settingsProvider = Provider.of<SettingsProvider>(context);
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.only(
-            topLeft: const Radius.circular(50),
-            topRight: const Radius.circular(50)),
+        borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(50), topRight: Radius.circular(50)),
         color: Theme.of(context).backgroundColor,
       ),
-      padding: EdgeInsets.all(50),
+      padding: const EdgeInsets.all(50),
       child: Column(
         children: [
           Expanded(
@@ -36,7 +35,7 @@ class _ThemeBottomState extends State<ThemeBottom> {
                               AppLocalizations.of(context)!.light)
                           : getSelectedItem(
                               AppLocalizations.of(context)!.light)),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   InkWell(
@@ -63,7 +62,7 @@ class _ThemeBottomState extends State<ThemeBottom> {
           borderRadius: BorderRadius.circular(40),
           border: Border.all(color: Colors.deepOrange)),
       height: 50,
-      margin: EdgeInsets.symmetric(vertical: 5, horizontal: 80),
+      margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 80),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -71,7 +70,7 @@ class _ThemeBottomState extends State<ThemeBottom> {
             text,
             style: Theme.of(context).textTheme.headline1,
           ),
-          Icon(Icons.check),
+          const Icon(Icons.check),
         ],
       ),
     );
@@ -83,7 +82,7 @@ class _ThemeBottomState extends State<ThemeBottom> {
             borderRadius: BorderRadius.circular(40),
             border: Border.all(color: Theme.of(context).primaryColor)),
         height: 50,
-        margin: EdgeInsets.symmetric(vertical: 5, horizontal: 80),
+        margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 80),
         child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
           Text(
             text,

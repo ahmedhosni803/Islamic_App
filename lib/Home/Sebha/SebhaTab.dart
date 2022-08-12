@@ -30,7 +30,7 @@ class _SebhaTabState extends State<SebhaTab> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
+              SizedBox(
                 height: size.height * .4,
                 child: Stack(
                   children: [
@@ -59,7 +59,7 @@ class _SebhaTabState extends State<SebhaTab> {
                 AppLocalizations.of(context)!.numbertasbeh,
                 style: Theme.of(context).textTheme.headline1,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
@@ -69,16 +69,16 @@ class _SebhaTabState extends State<SebhaTab> {
                     border: Border.all(color: Colors.deepOrange)),
                 height: 80,
                 width: 70,
-                margin: EdgeInsets.symmetric(vertical: 5, horizontal: 80),
+                margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 80),
                 child: Center(
                     child: Container(
-                        margin: EdgeInsets.only(top: 10, bottom: 6),
+                        margin: const EdgeInsets.only(top: 10, bottom: 6),
                         child: Text(
                           '$tap',
                           style: Theme.of(context).textTheme.headline4,
                         ))),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               Container(
@@ -87,14 +87,14 @@ class _SebhaTabState extends State<SebhaTab> {
                     color: Theme.of(context).primaryColorLight,
                     borderRadius: BorderRadius.circular(25),
                     border: Border.all(color: Colors.deepOrange)),
-                margin: EdgeInsets.symmetric(vertical: 5, horizontal: 80),
+                margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 80),
                 child: InkWell(
                   onTap: onPressd,
                   child: Center(
                       child: Container(
-                          margin: EdgeInsets.only(top: 15, bottom: 10),
+                          margin: const EdgeInsets.only(top: 15, bottom: 10),
                           child: Text(
-                            '${azkar[caonter]}',
+                            azkar[caonter],
                             style: Theme.of(context).textTheme.headline1,
                           ))),
                 ),
