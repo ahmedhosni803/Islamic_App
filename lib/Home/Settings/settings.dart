@@ -30,7 +30,7 @@ class _SettingsTapState extends State<SettingsTap> {
           ),
           body: (Column(
             children: [
-              Lottie.asset('assets/lottie/setting.json', width: 300),
+              Lottie.asset('assets/lottie/setting.zip', width: 300),
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(40),

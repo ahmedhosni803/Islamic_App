@@ -20,7 +20,7 @@ class SuraName extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             SizedBox(
-                width: 80,
+                width: 120,
                 child: Text(
                   Name,
                   style: Theme.of(context).textTheme.headline2,

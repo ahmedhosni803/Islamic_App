@@ -9,15 +9,15 @@ class RadioTab extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(
-              height: 80,
+              height: 50,
             ),
             Lottie.asset(
-              'assets/lottie/Baby.json',
+              'assets/lottie/radio.zip',
               width: 500,
               fit: BoxFit.fill,
             ),
             Lottie.asset(
-              'assets/lottie/soon.json',
+              'assets/lottie/soon.zip',
               width: 200,
               fit: BoxFit.fill,
             )

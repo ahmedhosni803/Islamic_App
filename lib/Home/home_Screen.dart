@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/Home/Hadeth/HadethTab.dart';
+import 'package:islami/Home/Home.dart';
 import 'package:islami/Home/Quran/QuranTab.dart';
 import 'package:islami/Home/Radio/RadioTab.dart';
 import 'package:islami/Home/Sebha/SebhaTab.dart';
@@ -17,7 +18,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int selectedTabIndex = 0;
+  int selectedTabIndex = 2;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
     List<String> title = [
       AppLocalizations.of(context)!.quran_title,
       AppLocalizations.of(context)!.hadeth_title,
+      AppLocalizations.of(context)!.home,
       AppLocalizations.of(context)!.tasbeh_title,
       AppLocalizations.of(context)!.radio_title
     ];
@@ -40,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onTap: () {
                 Navigator.pushNamed(context, SettingsTap.routeName);
               },
-              child: Lottie.asset('assets/lottie/settings.json')),
+              child: Lottie.asset('assets/lottie/settings.zip')),
           // IconButton(
           //     onPressed: () {
           //       Navigator.pushNamed(context, SettingsTap.routeName);
@@ -73,6 +75,11 @@ class _HomeScreenState extends State<HomeScreen> {
             BottomNavigationBarItem(
                 backgroundColor:
                     Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+                icon: const Icon((Icons.home)),
+                label: AppLocalizations.of(context)!.home),
+            BottomNavigationBarItem(
+                backgroundColor:
+                    Theme.of(context).bottomNavigationBarTheme.backgroundColor,
                 icon:
                     const ImageIcon(AssetImage('assets/images/icon_sebha.png')),
                 label: AppLocalizations.of(context)!.tasbeh),
@@ -89,5 +96,5 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  List<Widget> tabs = [QuranTab(), HadethTab(), SebhaTab(), RadioTab()];
+  List<Widget> tabs = [QuranTab(), HadethTab(), Home(), SebhaTab(), RadioTab()];
 }
