@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/Home/Quran/QuranSura.dart';
@@ -22,7 +21,7 @@ class _SuraState extends State<Sura> {
     var args = ModalRoute.of(context)?.settings.arguments as SuraDitails;
     String bsmala = ' ';
     if (args.index != 4) {
-      bsmala = 'بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ';
+      bsmala = 'بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم';
     }
     if (verses.isEmpty) ReadFile(args.index);
     return Container(
@@ -39,7 +38,7 @@ class _SuraState extends State<Sura> {
                 ? const Center(child: CircularProgressIndicator())
                 : Column(
                     children: [
-                      const SizedBox(
+                      SizedBox(
                         height: 25,
                       ),
                       Text(
