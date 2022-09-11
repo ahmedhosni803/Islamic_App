@@ -19,10 +19,7 @@ class _HomeState extends State<Home> {
     provider.ReadFile(index);
     provider.Verses();
     return provider.verses.isEmpty
-        ? Center(
-            child: Lottie.asset('assets/lottie/loading.zip',
-                width: size.width * 0.6),
-          )
+        ? Center(child: CircularProgressIndicator())
         : Scaffold(
             body: Column(
               children: [
@@ -52,7 +49,7 @@ class _HomeState extends State<Home> {
                                     style: Theme.of(context)
                                         .textTheme
                                         .headline3!
-                                        .copyWith(fontSize: size.width * 0.045),
+                                        .copyWith(fontSize: size.width * 0.05),
                                     textAlign: TextAlign.center,
                                   ),
                                 ),
@@ -71,7 +68,7 @@ class _HomeState extends State<Home> {
                                 },
                                 child: Container(
                                   width:
-                                      MediaQuery.of(context).size.width * 0.25,
+                                      MediaQuery.of(context).size.width * 0.3,
                                   height:
                                       MediaQuery.of(context).size.width * 0.1,
                                   padding: EdgeInsets.symmetric(
