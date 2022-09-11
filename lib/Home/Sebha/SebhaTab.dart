@@ -31,81 +31,85 @@ class _SebhaTabState extends State<SebhaTab> {
     return Container(
         width: double.infinity,
         color: Colors.transparent,
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: size.height * .4,
-                child: Stack(
-                  children: [
-                    Positioned(
-                      child: Image.asset(settingsProvider.getMainSebha_head()),
-                      top: 15,
-                      left: size.width * .48,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: size.height * .4,
+              child: Stack(
+                children: [
+                  Positioned(
+                    child: Image.asset(
+                      settingsProvider.getMainSebha_head(),
+                      width: size.width * 0.1,
                     ),
-                    Positioned(
-                      child: InkWell(
-                          onTap: onPressd,
-                          highlightColor: Colors.transparent,
-                          splashColor: Colors.transparent,
-                          child: Transform.rotate(
-                              angle: angle,
-                              child: Image.asset(
-                                  settingsProvider.getMainSebha()))),
-                      top: 85,
-                      left: size.width * .21,
-                      right: size.width * .21,
-                    ),
-                  ],
-                ),
+                    top: 15,
+                    left: size.width * .48,
+                  ),
+                  Positioned(
+                    child: InkWell(
+                        onTap: onPressd,
+                        highlightColor: Colors.transparent,
+                        splashColor: Colors.transparent,
+                        child: Transform.rotate(
+                            angle: angle,
+                            child: Image.asset(
+                              settingsProvider.getMainSebha(),
+                              height: size.height * 0.25,
+                            ))),
+                    top: 55,
+                    left: size.width * .21,
+                    right: size.width * .21,
+                  ),
+                ],
               ),
-              Text(
-                AppLocalizations.of(context)!.numbertasbeh,
-                style: Theme.of(context).textTheme.headline1,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColorLight,
-                    borderRadius: BorderRadius.circular(25),
-                    border: Border.all(color: Colors.deepOrange)),
-                height: 80,
-                width: 70,
-                margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 80),
+            ),
+            Text(
+              AppLocalizations.of(context)!.numbertasbeh,
+              style: Theme.of(context).textTheme.headline1,
+            ),
+            SizedBox(
+              height: size.height * 0.02,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                  color: Theme.of(context).primaryColorLight,
+                  borderRadius: BorderRadius.circular(25),
+                  border: Border.all(color: Colors.deepOrange)),
+              height: 80,
+              width: 70,
+              margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 80),
+              child: Center(
+                  child: Container(
+                      margin: const EdgeInsets.only(top: 10, bottom: 6),
+                      child: Text(
+                        '$tap',
+                        style: Theme.of(context).textTheme.headline4,
+                      ))),
+            ),
+            Spacer(),
+            Container(
+              width: 180,
+              decoration: BoxDecoration(
+                  color: Theme.of(context).primaryColorLight,
+                  borderRadius: BorderRadius.circular(25),
+                  border: Border.all(color: Colors.deepOrange)),
+              margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 80),
+              child: InkWell(
+                onTap: onPressd,
                 child: Center(
                     child: Container(
-                        margin: const EdgeInsets.only(top: 10, bottom: 6),
+                        margin: const EdgeInsets.only(top: 15, bottom: 10),
                         child: Text(
-                          '$tap',
-                          style: Theme.of(context).textTheme.headline4,
+                          azkar[caonter],
+                          style: Theme.of(context).textTheme.headline1,
                         ))),
               ),
-              const SizedBox(
-                height: 25,
-              ),
-              Container(
-                width: 180,
-                decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColorLight,
-                    borderRadius: BorderRadius.circular(25),
-                    border: Border.all(color: Colors.deepOrange)),
-                margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 80),
-                child: InkWell(
-                  onTap: onPressd,
-                  child: Center(
-                      child: Container(
-                          margin: const EdgeInsets.only(top: 15, bottom: 10),
-                          child: Text(
-                            azkar[caonter],
-                            style: Theme.of(context).textTheme.headline1,
-                          ))),
-                ),
-              )
-            ],
-          ),
+            ),
+            SizedBox(
+              height: size.height * 0.05,
+            )
+          ],
         ));
   }
 

@@ -19,11 +19,11 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   late SettingsProvider settingsProvider;
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     settingsProvider = Provider.of<SettingsProvider>(context);
+    // settingsProvider.Verses();
     getsShared();
     return MaterialApp(
       themeMode: settingsProvider.currentTheme,

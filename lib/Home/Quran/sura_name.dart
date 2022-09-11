@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami/Home/Quran/sura_details_display.dart';
 
+// ignore: must_be_immutable
 class SuraName extends StatelessWidget {
   String Name;
   int num;

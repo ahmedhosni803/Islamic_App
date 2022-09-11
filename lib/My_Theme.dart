@@ -5,6 +5,7 @@ class MyTheme {
       TextStyle(fontFamily: 'tajawal', fontSize: 14);
   static const Color lightColor = Color(0xFFB7935F);
   static const Color darkColor = Color(0xFFFACC1D);
+  static const Color darkColor1 = Color(0xFF222831);
   static final ThemeData lightTheme = ThemeData(
       backgroundColor: Colors.white,
       primaryColorLight: Color(0xFFB7935F),
@@ -48,7 +49,7 @@ class MyTheme {
   static final ThemeData darkTheme = ThemeData(
       backgroundColor: Color(0xFF141A2E),
       primaryColorDark: Color(0xFF14213B),
-      primaryColorLight: Color(0xFF141A2E),
+      primaryColorLight: darkColor1,
       textTheme: TextTheme(
         headline1:
             TextStyle(fontFamily: 'tajawal', fontSize: 20, color: Colors.white),
