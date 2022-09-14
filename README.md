@@ -1,7 +1,9 @@
-# islami
+# Islamic App
 
-A new Flutter project.
-
+An Islamic application is an application that contains many hadiths of up to 50 hadiths and contains the entire Qur’an and also contains
+1- Morning remembrances
+2- Evening remembrances
+And many other remembrances
 ## Getting Started
 
 This project is a starting point for a Flutter application.
