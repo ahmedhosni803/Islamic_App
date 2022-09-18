@@ -1,3 +1,5 @@
+![Uploading Islamic.jpg…]()
+
 # Islamic App
 
 An Islamic application is an application that contains many hadiths of up to 50 hadiths and contains the entire Qur’an and also contains
