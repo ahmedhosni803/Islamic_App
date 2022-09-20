@@ -12,7 +12,7 @@ class Sura extends StatefulWidget {
 }
 
 class _SuraState extends State<Sura> {
-  List<String> verses = [];
+  // List<String> verses = [];
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class _SuraState extends State<Sura> {
     if (args.index != 4) {
       bsmala = 'بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم';
     }
-    if (verses.isEmpty) ReadFile(args.index);
+    // if (verses.isEmpty) ReadFile(args.index);
     return Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -34,33 +34,41 @@ class _SuraState extends State<Sura> {
             appBar: AppBar(
               title: Text('سورة ${args.title}'),
             ),
-            body: verses.isEmpty
-                ? const Center(child: CircularProgressIndicator())
-                : Column(
-                    children: [
-                      SizedBox(
-                        height: 25,
-                      ),
-                      Text(
-                        bsmala,
-                        style: Theme.of(context).textTheme.headline3,
-                      ),
-                      // محتويات صفحة الصورة
-                      Expanded(
+            body: Column(
+              children: [
+                SizedBox(
+                  height: 25,
+                ),
+                Text(
+                  bsmala,
+                  style: Theme.of(context).textTheme.headline3,
+                ),
+                // محتويات صفحة الصورة
+                FutureBuilder<List<String>>(
+                    future: ReadFile('${args.index + 1}.txt'),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasError) {
+                        return Text('Eroor');
+                      } else if (snapshot.connectionState ==
+                          ConnectionState.waiting) {
+                        return Center(child: CircularProgressIndicator());
+                      }
+                      var verses = snapshot.data;
+                      return Expanded(
                         child: Container(
-                          padding: const EdgeInsetsDirectional.all(25),
+                          padding: const EdgeInsetsDirectional.all(15),
                           child: Container(
                             padding: const EdgeInsetsDirectional.all(0),
                             margin: const EdgeInsets.symmetric(
-                                vertical: 25, horizontal: 5),
+                                vertical: 15, horizontal: 5),
                             decoration: BoxDecoration(
                                 color: Theme.of(context).backgroundColor,
                                 borderRadius: BorderRadius.circular(25)),
                             child: ListView.separated(
                               itemBuilder: (_, index) {
-                                return QuranSura(verses[index], index);
+                                return QuranSura(verses![index], index);
                               },
-                              itemCount: verses.length,
+                              itemCount: verses?.length ?? 0,
                               separatorBuilder: (_, index) {
                                 return Container(
                                   color: Theme.of(context).primaryColor,
@@ -71,18 +79,22 @@ class _SuraState extends State<Sura> {
                             ),
                           ),
                         ),
-                      ),
-                    ],
-                  )));
+                      );
+                    })
+              ],
+            )));
   }
 
-  void ReadFile(int index) async {
-    String content =
-        await rootBundle.loadString('assets/Quran/${index + 1}.txt');
-    int num = 0;
+  Future<List<String>> readFile(String fileName) async {
+    String content = await rootBundle.loadString('assets/files/$fileName');
+    List<String> lines = content.trim().split("\r\n");
+    return lines;
+  }
+
+  Future<List<String>> ReadFile(String fileName) async {
+    String content = await rootBundle.loadString('assets/Quran/$fileName');
     List<String> line = content.trim().split("\n");
-    verses = line;
-    setState(() {});
+    return line;
   }
 }
 
@@ -92,3 +104,12 @@ class SuraDitails {
 
   SuraDitails(this.index, this.title);
 }
+
+// void ReadFile(int index) async {
+//   String content =
+//   await rootBundle.loadString('assets/Quran/${index + 1}.txt');
+//   int num = 0;
+//   List<String> line = content.trim().split("\n");
+//   verses = line;
+//   setState(() {});
+// }

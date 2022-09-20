@@ -37,7 +37,8 @@ dependencies:
   last_state: ^0.1.1
   shared_preferences: ^2.0.15
   flutter_launcher_icons: ^0.10.0
-
+  flutter_qiblah: ^2.0.2
+  #  flutter_compass: ^0.7.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -45,7 +46,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   rename: ^2.0.1
   http: ^0.13.5
-
+  adhan: ^2.0.0-nullsafety.2
+  location: ^4.4.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

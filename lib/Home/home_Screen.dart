@@ -3,9 +3,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/Home/Hadeth/HadethTab.dart';
 import 'package:islami/Home/Home.dart';
 import 'package:islami/Home/Quran/QuranTab.dart';
-import 'package:islami/Home/Radio/RadioTab.dart';
 import 'package:islami/Home/Sebha/SebhaTab.dart';
 import 'package:islami/Home/Settings/settings.dart';
+import 'package:islami/Home/prayer/Prayer_Timings.dart';
 import 'package:islami/Providers/settings_provider.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -28,13 +28,13 @@ class _HomeScreenState extends State<HomeScreen> {
       AppLocalizations.of(context)!.hadeth_title,
       AppLocalizations.of(context)!.home,
       AppLocalizations.of(context)!.tasbeh_title,
-      AppLocalizations.of(context)!.radio_title
+      AppLocalizations.of(context)!.prayer_title
     ];
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
             image: AssetImage(settingsProvider.getMainBackGround()),
-            fit: BoxFit.fill),
+            fit: BoxFit.cover),
       ),
       child: Scaffold(
         appBar: AppBar(title: Text(title[selectedTabIndex]), actions: [
@@ -43,58 +43,102 @@ class _HomeScreenState extends State<HomeScreen> {
                 Navigator.pushNamed(context, SettingsTap.routeName);
               },
               child: Lottie.asset('assets/lottie/settings.zip')),
-          // IconButton(
-          //     onPressed: () {
-          //       Navigator.pushNamed(context, SettingsTap.routeName);
-          //     },
-          //     icon: const Icon(
-          //       Icons.settings,
-          //       color: Colors.black,
-          //     ))
         ]),
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: selectedTabIndex,
-          onTap: (index) {
-            selectedTabIndex = index;
-            setState(() {});
-          },
-          items: [
-            BottomNavigationBarItem(
-                backgroundColor:
-                    Theme.of(context).bottomNavigationBarTheme.backgroundColor,
-                icon: const ImageIcon(
-                  AssetImage('assets/images/icon_quran.png'),
-                ),
-                label: AppLocalizations.of(context)!.quran),
-            BottomNavigationBarItem(
-                backgroundColor:
-                    Theme.of(context).bottomNavigationBarTheme.backgroundColor,
-                icon: const ImageIcon(
-                    AssetImage('assets/images/icon_hadeth.png')),
-                label: AppLocalizations.of(context)!.hadeth),
-            BottomNavigationBarItem(
-                backgroundColor:
-                    Theme.of(context).bottomNavigationBarTheme.backgroundColor,
-                icon: const Icon((Icons.home)),
-                label: AppLocalizations.of(context)!.home),
-            BottomNavigationBarItem(
-                backgroundColor:
-                    Theme.of(context).bottomNavigationBarTheme.backgroundColor,
-                icon:
-                    const ImageIcon(AssetImage('assets/images/icon_sebha.png')),
-                label: AppLocalizations.of(context)!.tasbeh),
-            BottomNavigationBarItem(
-                backgroundColor:
-                    Theme.of(context).bottomNavigationBarTheme.backgroundColor,
-                icon:
-                    const ImageIcon(AssetImage('assets/images/icon_radio.png')),
-                label: AppLocalizations.of(context)!.radio),
-          ],
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: Container(
+          decoration: BoxDecoration(
+              border:
+                  Border.all(color: Theme.of(context).primaryColor, width: 2),
+              borderRadius: BorderRadius.circular(50)),
+          width: 75,
+          height: 75,
+          child: FloatingActionButton(
+              shape: StadiumBorder(
+                  side: BorderSide(
+                      width: 8, color: Theme.of(context).backgroundColor)),
+              splashColor: Theme.of(context).primaryColor,
+              hoverColor: Theme.of(context).primaryColor,
+              onPressed: () {
+                selectedTabIndex = 2;
+                setState(() {});
+              },
+              backgroundColor: Theme.of(context).backgroundColor,
+              elevation: 5,
+              child: Image.asset(
+                'assets/images/home.png',
+                height: 50,
+              )),
         ),
+        bottomNavigationBar: BottomAppBar(
+            shape: CircularNotchedRectangle(),
+            notchMargin: 8,
+            color: Theme.of(context).backgroundColor,
+            child: BottomNavigationBar(
+              backgroundColor: Theme.of(context).backgroundColor,
+              showUnselectedLabels: false,
+              currentIndex: selectedTabIndex,
+              onTap: (index) {
+                selectedTabIndex = index;
+                setState(() {});
+              },
+              items: [
+                BottomNavigationBarItem(
+                    backgroundColor: Theme.of(context)
+                        .bottomNavigationBarTheme
+                        .backgroundColor,
+                    icon: (Image.asset(
+                      'assets/images/quran.png',
+                      width: 40,
+                    )),
+                    label: AppLocalizations.of(context)!.quran),
+                BottomNavigationBarItem(
+                    backgroundColor: Theme.of(context)
+                        .bottomNavigationBarTheme
+                        .backgroundColor,
+                    icon: (Image.asset(
+                      'assets/images/hadeth.png',
+                      width: 40,
+                    )),
+                    label: AppLocalizations.of(context)!.hadeth),
+                BottomNavigationBarItem(
+                    backgroundColor: Theme.of(context)
+                        .bottomNavigationBarTheme
+                        .backgroundColor,
+                    icon: const Icon(
+                      (Icons.home),
+                      size: 0,
+                    ),
+                    label: ''),
+                BottomNavigationBarItem(
+                    backgroundColor: Theme.of(context)
+                        .bottomNavigationBarTheme
+                        .backgroundColor,
+                    icon: (Image.asset(
+                      'assets/images/tasbih.png',
+                      width: 40,
+                    )),
+                    label: AppLocalizations.of(context)!.tasbeh),
+                BottomNavigationBarItem(
+                    backgroundColor: Theme.of(context)
+                        .bottomNavigationBarTheme
+                        .backgroundColor,
+                    icon: (Image.asset(
+                      'assets/images/prayer.png',
+                      width: 40,
+                    )),
+                    label: AppLocalizations.of(context)!.prayer),
+              ],
+            )),
         body: tabs[selectedTabIndex],
       ),
     );
   }
 
-  List<Widget> tabs = [QuranTab(), HadethTab(), Home(), SebhaTab(), RadioTab()];
+  List<Widget> tabs = [
+    QuranTab(),
+    HadethTab(),
+    Home(),
+    SebhaTab(),
+    PrayerTab()
+  ];
 }

@@ -7,24 +7,24 @@ import 'package:shared_preferences/shared_preferences.dart';
 class SettingsProvider extends ChangeNotifier {
   String currentLang = 'ar';
   ThemeMode currentTheme = ThemeMode.dark;
+
   List<String> verses = [];
-  final _random = Random();
+  Random _random = new Random();
   late var ver = verses[_random.nextInt(verses.length)];
 
-  Verses() async {
-    String Vers;
-    final _random = Random();
-    int index = (Random().nextInt(100));
+  Future Verses() async {
+    Random _random = new Random();
     if (verses.isEmpty) {
-      ReadFile(index);
+      ReadFile(_random.nextInt(100));
     }
-    Vers = await verses[_random.nextInt(verses.length)];
-    return Vers;
+    ver = verses[_random.nextInt(verses.length)];
+    return await verses[_random.nextInt(verses.length - 1)];
   }
 
   New() async {
-    int index = (Random().nextInt(100));
+    int index = (_random.nextInt(100));
     ReadFile(index);
+
     ver = await verses[_random.nextInt(verses.length)];
   }
 
@@ -65,8 +65,8 @@ class SettingsProvider extends ChangeNotifier {
 
   String getMainBackGround() {
     return isDarkMode()
-        ? 'assets/images/main_background_dark.png'
-        : 'assets/images/main_background.png';
+        ? 'assets/images/background_dark.jpg'
+        : 'assets/images/background.jpg';
   }
 
   String getMainSebha_head() {
@@ -80,6 +80,17 @@ class SettingsProvider extends ChangeNotifier {
         ? 'assets/images/body_sebha_dark.png'
         : 'assets/images/body_sebha_logo.png';
   }
+
+  // Future readfile() async {
+  //   final ran = Random();
+  //   List<String> line = [];
+  //   int index = 0;
+  //   if (line.isEmpty){index = (Random().nextInt(100));
+  //   ;}
+  //   String content = await rootBundle.loadString('assets/Quran/${5+1}.txt');
+  //   line = content.trim().split("/n");
+  //   return line;
+  // }
 
   void ReadFile(int index) async {
     String content =

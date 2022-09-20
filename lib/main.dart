@@ -3,11 +3,16 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/Home/Hadeth/Hadeth.dart';
 import 'package:islami/Home/Quran/sura_details_display.dart';
 import 'package:islami/Home/Settings/settings.dart';
+import 'package:islami/Home/azkar/azkar_masa.dart';
 import 'package:islami/Home/home_Screen.dart';
+import 'package:islami/Home/prayer/Qubla.dart';
 import 'package:islami/My_Theme.dart';
 import 'package:islami/Providers/settings_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'Home/azkar/azkar_sabah.dart';
+import 'Home/azkar/azkar_sala.dart';
 
 void main() async {
   runApp(ChangeNotifierProvider<SettingsProvider>(
@@ -23,7 +28,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     settingsProvider = Provider.of<SettingsProvider>(context);
-    // settingsProvider.Verses();
+    settingsProvider.Verses();
     getsShared();
     return MaterialApp(
       themeMode: settingsProvider.currentTheme,
@@ -36,6 +41,10 @@ class MyApp extends StatelessWidget {
         Sura.routeName: (_) => Sura(),
         Hadeth.routeName: (_) => Hadeth(),
         SettingsTap.routeName: (_) => SettingsTap(),
+        AzkarSabah.routeName: (_) => AzkarSabah(),
+        AzkarMasa.routeName: (_) => AzkarMasa(),
+        AzkarSalah.routeName: (_) => AzkarSalah(),
+        QiblahCompass.routeName: (_) => QiblahCompass(),
       },
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,

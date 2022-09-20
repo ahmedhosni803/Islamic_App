@@ -4,8 +4,8 @@ class MyTheme {
   static const TextStyle NavigationBar =
       TextStyle(fontFamily: 'tajawal', fontSize: 14);
   static const Color lightColor = Color(0xFFB7935F);
-  static const Color darkColor = Color(0xFFFACC1D);
-  static const Color darkColor1 = Color(0xFF222831);
+  static const Color darkColor = Color(0xFFE04D01);
+  static const Color darkColor1 = Color(0xFF533483);
   static final ThemeData lightTheme = ThemeData(
       backgroundColor: Colors.white,
       primaryColorLight: Color(0xFFB7935F),
@@ -30,7 +30,8 @@ class MyTheme {
             TextStyle(color: Colors.black, fontSize: 28, fontFamily: 'tajawal'),
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        backgroundColor: Color(0xFFB7935F),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
         showSelectedLabels: true,
         showUnselectedLabels: false,
         selectedItemColor: Colors.black,
@@ -47,8 +48,8 @@ class MyTheme {
       fontFamily: 'tajawal');
 
   static final ThemeData darkTheme = ThemeData(
-      backgroundColor: Color(0xFF141A2E),
-      primaryColorDark: Color(0xFF14213B),
+      backgroundColor: Color(0xFF251D3A),
+      primaryColorDark: Color(0xFF2A2550),
       primaryColorLight: darkColor1,
       textTheme: TextTheme(
         headline1:
@@ -71,14 +72,15 @@ class MyTheme {
             TextStyle(color: Colors.white, fontSize: 28, fontFamily: 'tajawal'),
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        backgroundColor: Color(0xFF141A2E),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
         selectedIconTheme: const IconThemeData(
           color: darkColor,
-          size: 36,
+          size: 40,
         ),
         unselectedIconTheme: const IconThemeData(
           color: Colors.white,
-          size: 28,
+          size: 25,
         ),
         selectedItemColor: darkColor,
         unselectedItemColor: Colors.white,
