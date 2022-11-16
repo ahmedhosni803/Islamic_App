@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'ScrolingInHome.dart';
 import 'azkar/azkar_sabah.dart';
 import 'azkar/azkar_sala.dart';
+import 'azkar/azkar_weackup.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -77,6 +78,13 @@ class _HomeState extends State<Home> {
                                 onTap: () {
                                   Clipboard.setData(
                                       ClipboardData(text: provider.ver));
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(SnackBar(
+                                    content: Text("تم نسخ الاية"),
+                                    elevation: 0.01,
+                                    clipBehavior: Clip.antiAlias,
+                                    duration: Duration(seconds: 1),
+                                  ));
                                 },
                                 child: Card(
                                   color: Colors.transparent,
@@ -221,7 +229,7 @@ class _HomeState extends State<Home> {
                                         AzkarSalah.routeName,
                                         image: 'sallah.png'),
                                     ScrolingInHome('أذكارالاستيقاظ', size,
-                                        AzkarSabah.routeName,
+                                        Azkarweak.routeName,
                                         image: 'sleep.png'),
                                   ],
                           ),

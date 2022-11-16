@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/Home/Settings/ThemeBottom.dart';
+import 'package:islami/Home/Settings/about.dart';
 import 'package:islami/Home/Settings/language_bottom.dart';
 import 'package:islami/Providers/settings_provider.dart';
 import 'package:lottie/lottie.dart';
@@ -118,19 +119,24 @@ class _SettingsTapState extends State<SettingsTap> {
                       const SizedBox(
                         height: 30,
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(40),
-                            border: Border.all(
-                                color: Theme.of(context).primaryColor)),
-                        height: 50,
-                        margin: const EdgeInsets.symmetric(
-                            vertical: 5, horizontal: 80),
-                        child: Center(
-                            child: Text(
-                          AppLocalizations.of(context)!.about,
-                          style: Theme.of(context).textTheme.headline1,
-                        )),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, about.routeName);
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(40),
+                              border: Border.all(
+                                  color: Theme.of(context).primaryColor)),
+                          height: 50,
+                          margin: const EdgeInsets.symmetric(
+                              vertical: 5, horizontal: 80),
+                          child: Center(
+                              child: Text(
+                            AppLocalizations.of(context)!.about,
+                            style: Theme.of(context).textTheme.headline1,
+                          )),
+                        ),
                       ),
                     ],
                   ),

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:islami/Home/prayer/qubla/Qubla.dart';
 import 'package:location/location.dart';
 import 'package:lottie/lottie.dart';
 
@@ -115,20 +116,21 @@ class _PrayerTabState extends State<PrayerTab> {
                           SizedBox(
                             height: size.height * 0.03,
                           ),
-                          // InkWell(
-                          //   onTap:(){
-                          //     Navigator.pushNamed(context, QiblahCompass.routeName);
-                          //   },
-                          //   child:ContainerDesign(
-                          //     Row(
-                          //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          //       children: [
-                          //         text('اتجاة القبلة'),
-                          //       ],
-                          //     ),
-                          //   ),
-                          // ),
-
+                          InkWell(
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, QiblahCompass.routeName);
+                            },
+                            child: ContainerDesign(
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  text('اتجاة القبلة'),
+                                ],
+                              ),
+                            ),
+                          ),
                           ContainerDesign(
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

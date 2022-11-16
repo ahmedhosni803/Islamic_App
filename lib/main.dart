@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/Home/Hadeth/Hadeth.dart';
 import 'package:islami/Home/Quran/sura_details_display.dart';
+import 'package:islami/Home/Sebha/Sebha_.dart';
+import 'package:islami/Home/Settings/about.dart';
 import 'package:islami/Home/Settings/settings.dart';
 import 'package:islami/Home/azkar/azkar_masa.dart';
+import 'package:islami/Home/azkar/azkar_weackup.dart';
 import 'package:islami/Home/home_Screen.dart';
-import 'package:islami/Home/prayer/Qubla.dart';
+import 'package:islami/Home/prayer/qubla/Qubla.dart';
 import 'package:islami/My_Theme.dart';
 import 'package:islami/Providers/settings_provider.dart';
 import 'package:provider/provider.dart';
@@ -45,6 +48,9 @@ class MyApp extends StatelessWidget {
         AzkarMasa.routeName: (_) => AzkarMasa(),
         AzkarSalah.routeName: (_) => AzkarSalah(),
         QiblahCompass.routeName: (_) => QiblahCompass(),
+        infintySebha.routeName: (_) => infintySebha(),
+        Azkarweak.routeName: (_) => Azkarweak(),
+        about.routeName: (_) => about(),
       },
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,

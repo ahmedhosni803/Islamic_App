@@ -13,12 +13,12 @@ class SettingsProvider extends ChangeNotifier {
   late var ver = verses[_random.nextInt(verses.length)];
 
   Future Verses() async {
-    Random _random = new Random();
+     _random = new Random();
     if (verses.isEmpty) {
       ReadFile(_random.nextInt(100));
     }
-    ver = verses[_random.nextInt(verses.length)];
-    return await verses[_random.nextInt(verses.length - 1)];
+    ver = await verses[_random.nextInt(verses.length) + 1];
+    return await verses[_random.nextInt(verses.length) + 1];
   }
 
   New() async {
@@ -67,6 +67,10 @@ class SettingsProvider extends ChangeNotifier {
     return isDarkMode()
         ? 'assets/images/background_dark.jpg'
         : 'assets/images/background.jpg';
+  }
+
+  String Bunary_Logo() {
+    return isDarkMode() ? 'assets/images/logo2.png' : 'assets/images/logo1.png';
   }
 
   String getMainSebha_head() {

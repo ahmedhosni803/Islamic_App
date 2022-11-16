@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami/Home/Sebha/Sebha_.dart';
 import 'package:islami/Providers/settings_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -35,7 +36,7 @@ class _SebhaTabState extends State<SebhaTab> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              height: size.height * .4,
+              height: size.height * .35,
               child: Stack(
                 children: [
                   Positioned(
@@ -67,9 +68,6 @@ class _SebhaTabState extends State<SebhaTab> {
             Text(
               AppLocalizations.of(context)!.numbertasbeh,
               style: Theme.of(context).textTheme.headline1,
-            ),
-            SizedBox(
-              height: size.height * 0.02,
             ),
             Container(
               decoration: BoxDecoration(
@@ -107,8 +105,29 @@ class _SebhaTabState extends State<SebhaTab> {
               ),
             ),
             SizedBox(
-              height: size.height * 0.05,
-            )
+              height: size.height * 0.08,
+            ),
+            Container(
+              width: 180,
+              decoration: BoxDecoration(
+                  color: Theme.of(context).primaryColorLight,
+                  borderRadius: BorderRadius.circular(25),
+                  border: Border.all(color: Colors.deepOrange)),
+              margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 80),
+              child: InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, infintySebha.routeName);
+                  },
+                  child: Center(
+                      child: Container(
+                    margin: const EdgeInsets.only(top: 15, bottom: 10),
+                    child: Text('سبحة لا نهائية',
+                        style: Theme.of(context).textTheme.headline1),
+                  ))),
+            ),
+            SizedBox(
+              height: size.height * 0.07,
+            ),
           ],
         ));
   }
