@@ -12,13 +12,12 @@ class SettingsProvider extends ChangeNotifier {
   Random _random = new Random();
   late var ver = verses[_random.nextInt(verses.length)];
 
-  Future Verses() async {
-     _random = new Random();
+  Verses() async {
+    final _random = Random();
+    int index = (Random().nextInt(100));
     if (verses.isEmpty) {
-      ReadFile(_random.nextInt(100));
+      ReadFile(index);
     }
-    ver = await verses[_random.nextInt(verses.length) + 1];
-    return await verses[_random.nextInt(verses.length) + 1];
   }
 
   New() async {

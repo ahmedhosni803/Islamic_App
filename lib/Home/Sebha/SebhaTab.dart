@@ -32,6 +32,7 @@ class _SebhaTabState extends State<SebhaTab> {
     return Container(
         width: double.infinity,
         color: Colors.transparent,
+        height: size.height * 0.9,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -105,7 +106,7 @@ class _SebhaTabState extends State<SebhaTab> {
               ),
             ),
             SizedBox(
-              height: size.height * 0.08,
+              height: size.height * 0.05,
             ),
             Container(
               width: 180,
